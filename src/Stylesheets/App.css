@@ -1,0 +1,28 @@
+.appContainer{
+  color-scheme: 'dark';
+  background-color: #121212; /* Dark background 
+  */
+  color: #ffffff;
+}
+
+.appContainer h1{
+  text-align: center;
+}
+
+.movieContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  justify-items: center;
+}
+
+/* Fallback message */
+.movieContainer span {
+  font-size: 1.2rem;
+  color: #bbbbbb;
+  grid-column: 1 / -1;
+  text-align: center;
+}
