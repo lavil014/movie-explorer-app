@@ -6,7 +6,7 @@ import '../Stylesheets/Footer.css'
 export const Footer = ()=>{
   return(
     <footer>
-      <span>Coded with ❤️ by Luis Aviles</span>
+      <span>Built with ❤️ by Luis Aviles</span>
       <ul>
         <li><a href="">Github</a></li>
         <li><a href="">Discord</a></li>
