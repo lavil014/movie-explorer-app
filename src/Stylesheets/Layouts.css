@@ -1,5 +1,28 @@
 
-.Sidebar ul li a {
-  color: rgb(231, 223, 223);
+.Sidebar{
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.5rem;
 }
 
+.Sidebar nav{
+  display: flex;
+  gap: 1rem;
+}
+
+
+/*
+.Sidebar .MovieFormLink{
+  padding: 6px;
+  background: linear-gradient(135deg, #007BFF, #00C6FF);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s, transform 0.15s, box-shadow 0.3s;
+  text-decoration: none;
+}
+  */

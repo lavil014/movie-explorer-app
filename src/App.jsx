@@ -1,20 +1,24 @@
 import Footer from './components/Footer';
-import LayOut from './components/Layouts';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieContainer from './components/MovieContainer';
-import Header from './components/Header';
+import NavBar from './components/NavBar';
+import MovieForm from './components/MovieForm';
+import About from './components/About';
 import './Stylesheets/App.css';
+
 
 const App = ()=>{
 
-  return(
-
-    <div>
-      <LayOut>
-        <Header/>
-        <MovieContainer/>
-        <Footer/>
-      </LayOut>     
-    </div>    
+  return(    
+    
+    <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={<MovieContainer/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/addamovie' element={<MovieForm/>}/>
+        </Routes>
+    </BrowserRouter>    
   )
 }
 
