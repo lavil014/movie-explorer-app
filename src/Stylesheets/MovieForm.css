@@ -3,7 +3,7 @@
   max-width: 300px;
   margin: 50px auto;
   padding: 30px 40px;
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  background: linear-gradient(145deg, #f8f4f4, #f0f0f0);
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.08), 0 6px 6px rgba(0,0,0,0.05);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -35,9 +35,9 @@
 .movie-form-container input[type="file"], 
 .movie-form-container input[type="text-area"]  {
   padding: 12px 15px;
-  border: 1px solid #ccc;
+  border: 1px solid transparent;
   border-radius: 12px;
-  font-size: 10px;
+  font-size: 12px;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -58,6 +58,7 @@
   border-radius: 12px;
   cursor: pointer;
   font-size: 13px;
+  margin-top: 1rem;
   transition: background 0.3s, transform 0.15s, box-shadow 0.3s;
 }
 
