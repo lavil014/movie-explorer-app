@@ -1,43 +1,92 @@
 import '../Stylesheets/MovieForm.css'
 import { useState } from 'react'
 
+import movies from '../data/movies.json'
 
 const MovieForm = ()=>{
-  
-  const [title, setTitle] = useState('');
-  const [poster, setPoster] = useState('');
-  const [rating, setRating] = useState(0);
-  const [genre, setGenre] = useState('');
-  const [year , setYear] = useState(0);
-  const [director, setDirector] = useState('');
-  const [description, setDescription] = useState('');
+
+  const [movieData, setMovieData] = useState({
+    title : '',
+    poster : '',
+    rating : '',
+    genre : '',
+    year : '',
+    director : '',
+    description : ''
+  })
+
+  const [newMovieData, setNewMovieData]= useState(movies);
+
+  const {title, poster,rating,genre,year,director,description} = movieData;
 
 
+  const manageMovieData = (e)=>{
+
+    const {name, value} = e.target;
+    let updatedValue = value;
 
 
-  const addMovie = ()=>{
-    alert('Add your movie');
+    if(name === 'rating' || name === 'year'){
+
+      updatedValue = Number(value);     
+
+      if(updatedValue === ''){
+        updatedValue = 0
+      }
+    
+    }else{
+      updatedValue = value;
+    }
+
+    
+      setMovieData((prevData)=>({
+        ...prevData,
+        [name] : updatedValue
+      }));
+
   }
 
+
+  const addMovie = (e)=>{
+    e.preventDefault()
+ 
+    setNewMovieData((prevMovies =>[...prevMovies, movieData]));
+    
+    setMovieData({
+   
+      title : '',
+      poster : '',
+      rating : '',
+      genre : '',
+      year : '',
+      director : '',
+      description : ''
+    })
+
+
+  }
+
+  console.log(newMovieData)
+  
+  
   return (
     <div className="movie-form-container">
-      <form action="">
+      <form onSubmit={addMovie} action="">
         <label  htmlFor="">Title</label>
-        <input id='movie-title' type="text" />
+        <input name='title' value={title} onChange={manageMovieData} id='movie-title' type="text" />
         <label htmlFor="">Poster</label>
-        <input id='' type="file" accept='image/*'/>
+        <input name='poster' value={poster} onChange={manageMovieData} type="text"/>
         <label htmlFor="">Rating</label>
-        <input id='' type="text" />
+        <input name='rating' value={rating} onChange={manageMovieData} type="number" />
         <label htmlFor="">Genre</label>
-        <input type="text" />
+        <input name='genre' value={genre} onChange={manageMovieData} type="text" />
         <label htmlFor="">Year</label>
-        <input type="text" />
+        <input name='year' value={year} onChange={manageMovieData} type="number" />
         <label htmlFor="">Director</label>
-        <input type="text" />
+        <input name='director' value={director} onChange={manageMovieData} type="text" />
         <label htmlFor="">Description</label>
-        <input type='text-area' />
-
-        <button type="button" >Add movie</button>
+        <textarea name="description" value={description} onChange={manageMovieData} id=""></textarea>
+        <button type="submit">Add movie</button>
       </form>
     </div>
   )
