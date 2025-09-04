@@ -1,26 +1,7 @@
-import { useState, useEffect } from 'react';
-import movies from '../data/movies.json'
 import Card from "./MovieCard";
-
 import '../Stylesheets/MovieContainer.css'
 
-const MovieContainer = ()=>{
-
-
-  const [appMovies , setAppmovies ] = useState(()=>{
-
-    const storedMovies = localStorage.getItem('storedMovies')
-
-    return storedMovies ? JSON.parse(storedMovies) : movies;
-  });
-  
-
-  useEffect(()=>{
-
-    localStorage.setItem('storedMovies', JSON.stringify(movies));
-
-  }, [movies]);
-
+const MovieContainer = ({appMovies})=>{
 
   const currentYear = new Date().getFullYear();
   
@@ -31,9 +12,9 @@ const MovieContainer = ()=>{
 
       <div className="movieContainer">
         {
-          movies.length > 0? 
+          appMovies.length > 0? 
           
-          movies.map((movie)=>{
+          appMovies.map((movie)=>{
 
             const {id, title, director, year, rating, poster,genre} = movie;
 

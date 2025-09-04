@@ -1,11 +1,8 @@
 import '../Stylesheets/MovieForm.css'
 import { useState } from 'react'
-
 import movies from '../data/movies.json'
 
-console.log(localStorage)
-
-const MovieForm = ()=>{
+const MovieForm = ({setAppmovies})=>{
 
   const [movieData, setMovieData] = useState({
     title : '',
@@ -17,7 +14,6 @@ const MovieForm = ()=>{
     description : ''
   })
 
-  const [newMovieData, setNewMovieData]= useState(movies);
 
   const {title, poster,rating,genre,year,director,description} = movieData;
 
@@ -48,11 +44,14 @@ const MovieForm = ()=>{
 
   }
 
+  
 
   const addMovie = (e)=>{
     e.preventDefault()
+
  
-    setNewMovieData((prevMovies =>[...prevMovies, movieData]));
+    const newMovie = {...movieData, id: Date.now()};
+    setAppmovies(prevMovies =>[...prevMovies, newMovie]);
     
     setMovieData({
    
@@ -70,7 +69,7 @@ const MovieForm = ()=>{
     
   return (
     <div className="movie-form-container">
-      <form onSubmit={addMovie} action="">
+      <form onSubmit={addMovie}  action="">
         <label  htmlFor="">Title</label>
         <input name='title' value={title} onChange={manageMovieData} id='movie-title' type="text" />
         <label htmlFor="">Poster</label>
