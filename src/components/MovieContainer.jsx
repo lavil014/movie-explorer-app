@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from 'react';
 import movies from '../data/movies.json'
 import Card from "./MovieCard";
 
@@ -6,12 +6,28 @@ import '../Stylesheets/MovieContainer.css'
 
 const MovieContainer = ()=>{
 
+
+  const [appMovies , setAppmovies ] = useState(()=>{
+
+    const storedMovies = localStorage.getItem('storedMovies')
+
+    return storedMovies ? JSON.parse(storedMovies) : movies;
+  });
+  
+
+  useEffect(()=>{
+
+    localStorage.setItem('storedMovies', JSON.stringify(movies));
+
+  }, [movies]);
+
+
   const currentYear = new Date().getFullYear();
   
   return(
 
     <div>
-      <h1>Top Movies in {currentYear} !</h1>
+      <h1>Best movies of {currentYear} !</h1>
 
       <div className="movieContainer">
         {

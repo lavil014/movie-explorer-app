@@ -18,6 +18,7 @@ const App = ()=>{
           <Route path='/about' element={<About/>}/>
           <Route path='/addamovie' element={<MovieForm/>}/>
         </Routes>
+        <Footer/>
     </BrowserRouter>    
   )
 }

@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 import movies from '../data/movies.json'
 
+console.log(localStorage)
+
 const MovieForm = ()=>{
 
   const [movieData, setMovieData] = useState({
@@ -65,10 +67,7 @@ const MovieForm = ()=>{
 
 
   }
-
-  console.log(newMovieData)
-  
-  
+    
   return (
     <div className="movie-form-container">
       <form onSubmit={addMovie} action="">
